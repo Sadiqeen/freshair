@@ -47,8 +47,6 @@ app.post("/contact", jsonParser, (req, res, next) => {
 		.catch(function (err) {
 			throw err
 		})
-
-	res.send(req.body.test)
 });
 
 app.get("/contact", (req, res) => {
