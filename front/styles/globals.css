@@ -1,0 +1,26 @@
+main {
+  margin-bottom: 150px;
+}
+
+.nav-padding {
+  padding: 0 5%;
+}
+
+.ar-section {
+  margin-top: 5rem;
+}
+
+.ar-container {
+  max-width: 960px;
+  padding: 0 5%;
+}
+
+.bottom-line {
+  width: 240px;
+  height: 4px;
+  background-color: #3385e7;
+}
+
+.max-width-200 {
+  max-width: 200px;
+}
