@@ -12,6 +12,7 @@ import FreshAirUnit from '../components/fresh_air_unit'
 import Contact from '../components/contact'
 import Prefilter from '../components/pre_filter'
 import PositivePressure from '../components/positive_pressure'
+import SICS from '../components/sics'
 
 export default function Home() {
     return (
@@ -48,6 +49,8 @@ export default function Home() {
                     <Prefilter></Prefilter>
 
                     <PositivePressure></PositivePressure>
+
+                    <SICS></SICS>
                     
                     <Contact></Contact>
 

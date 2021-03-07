@@ -28,3 +28,7 @@ main {
 .font-smaller {
   font-size: smaller;
 }
+
+.border-3px {
+  border-left-width: 3px !important;
+}
