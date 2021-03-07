@@ -13,6 +13,9 @@ import Contact from '../components/contact'
 import Prefilter from '../components/pre_filter'
 import PositivePressure from '../components/positive_pressure'
 import SICS from '../components/sics'
+import Setup from '../components/setup'
+import Partner from '../components/partner'
+import Client from '../components/client'
 
 export default function Home() {
     return (
@@ -51,7 +54,13 @@ export default function Home() {
                     <PositivePressure></PositivePressure>
 
                     <SICS></SICS>
-                    
+
+                    <Setup></Setup>
+
+                    <Partner></Partner>
+
+                    <Client></Client>
+
                     <Contact></Contact>
 
                 </div>
