@@ -24,3 +24,7 @@ main {
 .max-width-200 {
   max-width: 200px;
 }
+
+.font-smaller {
+  font-size: smaller;
+}

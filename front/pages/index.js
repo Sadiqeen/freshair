@@ -11,6 +11,7 @@ import Property from '../components/property'
 import FreshAirUnit from '../components/fresh_air_unit'
 import Contact from '../components/contact'
 import Prefilter from '../components/pre_filter'
+import PositivePressure from '../components/positive_pressure'
 
 export default function Home() {
     return (
@@ -46,6 +47,8 @@ export default function Home() {
 
                     <Prefilter></Prefilter>
 
+                    <PositivePressure></PositivePressure>
+                    
                     <Contact></Contact>
 
                 </div>
