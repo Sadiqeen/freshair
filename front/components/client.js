@@ -1,6 +1,4 @@
 import {
-    Row,
-    Col,
     Image
 } from "react-bootstrap";
 import Fade from 'react-reveal/Fade';
