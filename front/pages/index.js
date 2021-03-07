@@ -8,6 +8,7 @@ import Fade from 'react-reveal/Fade';
 // Component
 import ArSection from '../components/ar_section'
 import Property from '../components/property'
+import FreshAirUnit from '../components/fresh_air_unit'
 import Contact from '../components/contact'
 
 export default function Home() {
@@ -29,9 +30,10 @@ export default function Home() {
                     <ArSection></ArSection>
 
                     <Fade bottom>
-                        <h2 className="text-center font-weight-bold">HEPA CIRCULATION UNIT: HCU</h2>
-                        <h4 className="text-center">เครื่องกรองอากาศควบคุมเชื้อ</h4>
-                        <h6 className="text-center">สะอาดปลอดภัย หายใจได้เต็มปอด</h6>
+                        <h1 className="text-center">
+                            <span className="h2 font-weight-bold">HEPA CIRCULATION UNIT: HCU</span><br/>
+                            <span className="h4">เครื่องกรองอากาศควบคุมเชื้อ</span><br/>
+                            <span className="h6">สะอาดปลอดภัย หายใจได้เต็มปอด</span></h1>
                         <div className="bottom-line mt-3 mx-auto"></div>
                     </Fade>
 
@@ -39,6 +41,8 @@ export default function Home() {
 
                     <Property></Property>
                     
+                    <FreshAirUnit></FreshAirUnit>
+
                     <Contact></Contact>
                 </div>
             </main>

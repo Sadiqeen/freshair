@@ -30,7 +30,7 @@ function contact_layout() {
     return (
         <Form className="mt-5" onSubmit={handleFormSubmit}>
 
-            <h1 className="text-center">ติดต่อเรา</h1>
+            <h2 className="h1 text-center">ติดต่อเรา</h2>
 
             <Form.Row>
                 <Form.Group as={Col} md="6">
