@@ -10,6 +10,7 @@ import ArSection from '../components/ar_section'
 import Property from '../components/property'
 import FreshAirUnit from '../components/fresh_air_unit'
 import Contact from '../components/contact'
+import Prefilter from '../components/pre_filter'
 
 export default function Home() {
     return (
@@ -43,7 +44,10 @@ export default function Home() {
                     
                     <FreshAirUnit></FreshAirUnit>
 
+                    <Prefilter></Prefilter>
+
                     <Contact></Contact>
+
                 </div>
             </main>
         </div>
