@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useRef } from 'react';
 import {
     Form,
     Col,
@@ -8,6 +8,7 @@ import axios from '../axios.config'
 import swal from 'sweetalert';
 
 function contact_layout() {
+    const formRef = useRef(null);
 
     const [form, setForm] = useState({
         name : '',
@@ -35,13 +36,14 @@ function contact_layout() {
                 title : '',
                 body : '',
             });
+            formRef.current.reset();
         } else {
             swal("Opss!", "มีบางอย่างผิดพลาด", "error");
         }
     }
 
     return (
-        <Form className="mt-5" onSubmit={handleFormSubmit}>
+        <Form className="mt-5" ref={formRef} onSubmit={handleFormSubmit}>
 
             <h2 className="h1 text-center">ติดต่อเรา</h2>
 
