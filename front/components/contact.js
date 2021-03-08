@@ -5,6 +5,7 @@ import {
     Button,
 } from "react-bootstrap";
 import axios from '../axios.config'
+import swal from 'sweetalert';
 
 function contact_layout() {
 
@@ -25,6 +26,18 @@ function contact_layout() {
         e.preventDefault();
 
         const res = await axios.post('/contact', form);
+
+        if (res.data.status === "success") {
+            swal("สำเร็จ!", "เราได้รับข้อมูลของคุณแล้ว", "success");
+            setForm({
+                name : '',
+                email : '',
+                title : '',
+                body : '',
+            });
+        } else {
+            swal("Opss!", "มีบางอย่างผิดพลาด", "error");
+        }
     }
 
     return (
@@ -38,18 +51,18 @@ function contact_layout() {
                     <Form.Control type="text" name="name" value={form.name} onInput={handleFormChange} required/>
                 </Form.Group>
 
-                <Form.Group as={Col} md="6" controlId="formGridEmail">
+                <Form.Group as={Col} md="6">
                     <Form.Label>อีเมล</Form.Label>
                     <Form.Control type="email" name="email" value={form.email} onInput={handleFormChange} required/>
                 </Form.Group>
             </Form.Row>
 
-            <Form.Group controlId="formGridPassword">
+            <Form.Group>
                 <Form.Label>หัวข้อ</Form.Label>
                 <Form.Control type="text" name="title" value={form.title} onInput={handleFormChange} required/>
             </Form.Group>
 
-            <Form.Group controlId="exampleForm.ControlTextarea1">
+            <Form.Group>
                 <Form.Label>รายละเอียด</Form.Label>
                 <Form.Control as="textarea" name="body" rows={3} value={form.body} onInput={handleFormChange} required/>
             </Form.Group>
