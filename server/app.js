@@ -5,10 +5,18 @@ const port = 8000;
 const bodyParser = require('body-parser')
 const jsonParser = bodyParser.json()
 
-const MongoClient = require("mongodb").MongoClient;
-const url = "mongodb://localhost:27017";
+const mongoose = require('mongoose');
+const url = "mongodb://localhost:27017/"; // always add / end of link
 const databaseName = "TestFreshAir";
 const collection = "contact";
+mongoose.connect(url + databaseName, { useNewUrlParser: true, useUnifiedTopology: true });
+
+const Contact = mongoose.model('Contact', {
+	name: String,
+	email: String,
+	title: String,
+	body: String,
+});
 
 var corsOptions = {
 	origin: '*',
@@ -18,50 +26,36 @@ var corsOptions = {
 app.use(cors(corsOptions))
 
 app.post("/contact", jsonParser, (req, res, next) => {
-	MongoClient.connect(url, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true
-	})
-		.then((db) => {
-			const dbo = db.db(databaseName);
-			const contact_data = {
-				name: req.body.name,
-				email: req.body.email,
-				title: req.body.title,
-				body: req.body.body,
-			};
 
-			dbo.collection(collection).insertOne(contact_data, function (err, result) {
-				if (err) {
-					throw err
-				} else {
-					res.statusCode = 404;
-					res.setHeader('Content-Type', 'text/plain');
-					res.json({
-						"status": "success"
-					});
-				}
-				db.close();
-			});
-		})
-		.catch(function (err) {
-			throw err
-		})
+	try {
+		const new_contact = new Contact({
+			name: req.body.name,
+			email: req.body.email,
+			title: req.body.title,
+			body: req.body.body,
+		});
+
+		new_contact.save().then(() => res.json({
+			"status": "success"
+		}));
+	} catch (error) {
+		console.log(`Error log : ${error}`);
+		res.status(500);
+	}
+
 });
 
-app.get("/contact", (req, res) => {
-	MongoClient.connect(url, function (err, db) {
-		if (err) throw err;
+app.get("/contact", async (req, res) => {
+	
+	try {
+		const result = await Contact.find({});
+		res.send(result);
+	} catch (error) {
+		console.log(`Error log : ${error}`);
+		res.status(500);
+	}
 
-		const dbo = db.db(databaseName);
-		dbo
-			.collection(collection)
-			.find()
-			.toArray(function (err, result) {
-				res.send(result);
-				db.close();
-			});
-	});
+
 });
 
 app.listen(port, () => {
