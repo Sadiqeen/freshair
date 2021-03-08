@@ -22,7 +22,6 @@ export default function Home() {
         <div>
             <Head>
                 <title>เครื่องกรองอากาศควบคุมเชื้อ เติมอากาศสะอาด</title>
-                <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <main>
